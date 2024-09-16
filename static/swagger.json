@@ -1,0 +1,134 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API de Adoção de Animais",
+      "version": "1.0.0",
+      "description": "Documentação da API para cadastro e gerenciamento de animais para adoção."
+    },
+    "paths": {
+      "/animalzinhos": {
+        "get": {
+          "summary": "Lista todos os animalzinhos",
+          "responses": {
+            "200": {
+              "description": "Lista de animalzinhos",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Animalzinho"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Cria um novo animalzinho",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Animalzinho"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Animalzinho criado",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Animalzinho"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/animalzinhos/{id}": {
+        "get": {
+          "summary": "Obtém um animalzinho específico",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Animalzinho encontrado",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Animalzinho"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Deleta um animalzinho específico",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Animalzinho adotado"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Animalzinho": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "ID do animalzinho"
+            },
+            "nome": {
+              "type": "string",
+              "description": "Nome do animalzinho"
+            },
+            "especie": {
+              "type": "string",
+              "description": "Espécie do animalzinho"
+            },
+            "raca": {
+              "type": "string",
+              "description": "Raça do animalzinho"
+            },
+            "idade": {
+              "type": "string",
+              "description": "Idade do animalzinho"
+            },
+            "descricao": {
+                "type": "string",
+                "description": "Descrição do animalzinho"
+              }
+            },
+            "required": ["nome", "especie", "raca", "idade", "descricao"]
+          }
+        }
+      }
+    }
