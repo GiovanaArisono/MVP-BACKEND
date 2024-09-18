@@ -108,23 +108,28 @@
             },
             "nome": {
               "type": "string",
-              "description": "Nome do animalzinho"
+              "description": "Nome do animalzinho",
+              "default": "Theo"
             },
             "especie": {
               "type": "string",
-              "description": "Espécie do animalzinho"
+              "description": "Espécie do animalzinho",
+              "default": "Cachorro"
             },
             "raca": {
               "type": "string",
-              "description": "Raça do animalzinho"
+              "description": "Raça do animalzinho",
+              "default": "Caramelo"
             },
             "idade": {
               "type": "string",
-              "description": "Idade do animalzinho"
+              "description": "Idade do animalzinho",
+              "default": "1"
             },
             "descricao": {
                 "type": "string",
-                "description": "Descrição do animalzinho"
+                "description": "Descrição do animalzinho",
+              "default": "Theo é muito amigável e brincalhão"
               }
             },
             "required": ["nome", "especie", "raca", "idade", "descricao"]
